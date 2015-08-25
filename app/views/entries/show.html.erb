@@ -1,4 +1,6 @@
-  <h2><%= @entry.title %></h2>
+  <h2><%= @entry.title %></h2
   <p><%= @entry.date %></p>
   <p><%= @entry.contents %></p>
+  <p><%= link_to("Edit this entry", edit_entry_path(@entry)) %></p>
+  <p><%= link_to 'Remove this entry', @entry, method: :delete, data: {confirm: 'Are you sure?'} %></p>
   <p><%= link_to("Back to all entries", entries_path) %></p>

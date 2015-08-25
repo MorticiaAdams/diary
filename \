@@ -1,0 +1,35 @@
+class EntriesController < ApplicationController
+
+  def index
+    @entries = Entry.all
+  end
+
+  def show
+    @entry = Entry.find(params["id"])
+  end
+
+  def create
+    entry_params = params["entry"].permit("title", "contents")
+    #render(:text => entry_params.inspect)
+    entry = Entry.create(entry_params)
+    redirect_to(entry_path(entry))
+  end
+
+  def delete
+    entry_params = params["id"]
+    entry = Entry.find(params["id"])
+    entry.delete(entry.params) 
+  end   
+
+  def edit
+    @entry = Entry.find(params["id"])
+  end
+
+  def update
+    entry_params = params["entry"].permit("title", "contents")
+    entry = Entry.find(params["id"])
+    entry.update(entry_params)
+    redirect_to(entry_path(entry))
+  end
+
+end

@@ -1,16 +1,18 @@
+<% provide(:title, "Welcome") %>
 <p>
-    <h1>Welcome to my diary</h1>
-    <div>
-        <% for url, name in @websites %>
-            <li><a href="<%= url %>"><%= name %></a></li>
-        <% end %>
-    </div>
-    <div>
-        <% for entry in @entries %>
-            <h2><%= entry.title %></h2>
-            <p><%= entry.date %></p>
-            <p><%= entry.contents %></p>
-        <% end %>
-    </div>
+<h1>Welcome to my micro blog</h1>
+    <p>Ketelbinkjes haperdashery.</p></ br>
+    <p><%= buildWelcomeText() %></p>
+    <p>
+        My favourite web threads are:
+        <div>
+            <% for url, name in @websites %>
+                <li><a href="<%= url %>"><%= name %></a></li>
+            <% end %>
+        </div>
+    </p>
+    </ br>
+    <p><%= link_to("View all entries", entries_path) %></p>
     <img src="http://railsgirls.com/images/rg-warsaw.png" />
+    
 </p>

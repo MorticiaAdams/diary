@@ -1,4 +1,6 @@
 class Entry < ActiveRecord::Base
-    Validates :title, :presence: true, length: { maximum: 64}
-    Validates :content, :presence: true, length: { maximum: 255 }
+    validates :title, :presence true,
+        length: { maximum: 20 }
+    validates :contents, :presence true,
+        length: { maximum: 140 }
 end
